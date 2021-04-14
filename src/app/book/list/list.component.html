@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 style="text-align: center">List Books</h1>
+  <a [routerLink]="'create'" class="btn btn-info">Create new book</a>
+  <p class="btn btn-primary" style="float: right">Have {{books.length}} Books</p>
+</div>
+<hr>
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col" width="150">Author</th>
+      <th scope="col" width="800">Description</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let b of books,let i = index">
+      <td>{{i+1}}</td>
+      <td> <a [routerLink]="'detail/'+b.id">{{b.title}}</a></td>
+      <td>{{b.author}}</td>
+      <td>{{b.description}}</td>
+      <td>
+        <button type="button" class="btn btn-outline-warning" [routerLink]="'edit/'+b.id">Edit</button>
+        <button type="button" class="btn  btn-outline-danger" (click)="delete(b.id)">Delete</button>
+      </td>
+      <td>
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+
